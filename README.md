@@ -51,22 +51,22 @@ Using the MERN stack: MongoDB, Express, React, Node. And JavaScript as main lang
 
 ### client
 create frontend using [Vite](https://vitejs.dev/)
-```
+```bash
 $ yarn create vite client
 $ cd client
 $ yarn 
 ```
 install packages
-```
+```bash
 $ yarn add react react-dom react-router-dom axios
 ```
 setup eslint (options: JavaScript modules, browser, JS)
-```
+```bash
 $ yarn add -D eslint eslint-config-google@latest eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-react-refresh
 $ yarn run eslint --init
 ```
 run client: http://localhost:5173
-```
+```bash
 $ yarn dev
 ```
 
@@ -74,29 +74,29 @@ $ yarn dev
 
 ### server
 create backend using [ironlauncher](https://github.com/ironhack-edu/ironlauncher)
-```
+```bash
 $ npx ironlauncher server
 $ cd server
 $ yarn
 ```
 install packages
-```
+```bash
 $ yarn add express mongoose dotenv
 ```
 setup eslint (options: commonJS, node, JSON)
-```
+```bash
 $ yarn add -D eslint eslint-config-google@latest
 $ yarn run eslint --init
 ```
 run server: http://localhost:5005
-```
+```bash
 $ yarn dev
 ````
 
 ### database
 
 MongoDB database is running on port `27017`. The name is set to `alpha`.
-```
+```bash
 $ mongodb://localhost:27017/alpha
 ```
 
