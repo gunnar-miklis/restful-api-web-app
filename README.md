@@ -1,6 +1,6 @@
 # RESTful API – Full-Stack Web Application
 
-Completed in 2 day.
+Completed in less than 2 days.
 
 #### Result
 <table>
@@ -31,15 +31,11 @@ Completed in 2 day.
 
 #### My Abilties (after bootcamp, self-taught) 
 - `TypeScript` in [one sinlge learning path](https://github.com/gunnar-miklis/learn-typescript).
-- `ReactNative/Expo` for [rebuilding 2x simple components](https://github.com/gunnar-miklis/frontend-challenges/tree/main/qr-code-component/solutions/ReactNative).
+- `ReactNative/Expo` for [rebuilding 2x simple components](https://github.com/gunnar-miklis/frontend-challenges/tree/main/qr-code-component/solutions/ReactNative) and [one frontend application](https://github.com/gunnar-miklis/qr-code-scanner-app#qr-code-ticket-scanner-in-react-native).
 - `MUi` and `JSS` for [one learning series](https://github.com/gunnar-miklis/intro-to-material-ui-react) and [one simple component](https://github.com/gunnar-miklis/frontend-challenges/tree/main/tip-calculator/solutions/react-mui).
-- Various (close to daily) [Coding Challenges](https://github.com/gunnar-miklis/coding-challenges) from Codewars.
+- Various [Coding Challenges](https://github.com/gunnar-miklis/coding-challenges) on Codewars.
 
-### Learnings in this project
-- **Prioritize**: Focus on a working solution rather than the most beautiful or complex one.
-- Get familar with `Version Control` and merging branches in `GitLab` _(git branch, checkout, fetch)_.
-- Use my abilties in an unfamiliar setup as best as I can. 
-
+&nbsp;
 
 ## SETUP
 Using the MERN stack: MongoDB, Express, React, Node. And JavaScript as main language.
@@ -93,11 +89,13 @@ run server: http://localhost:5005
 $ yarn dev
 ````
 
+&nbsp;
+
 ### database
 
-MongoDB database is running on port `27017`. The name is set to `alpha`.
+MongoDB database is running on port `27017`. The name is set to `todolist-app`.
 ```bash
-$ mongodb://localhost:27017/alpha
+$ mongodb://localhost:27017/todolist-app
 ```
 
 &nbsp;
