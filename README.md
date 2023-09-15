@@ -39,9 +39,6 @@ Completed in less than 2 days.
 
 ## SETUP
 Using the MERN stack: MongoDB, Express, React, Node. And JavaScript as main language.
-- Used a `mern-stack` branch for development.
-- Used a `client-fe` branch for frontend commits.
-- Used a `server-be` branch for backend commits.
 
 &nbsp;
 
