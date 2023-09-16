@@ -25,7 +25,7 @@ Completed in less than 2 days.
 
 ---
 
-## I am looking for an entry-level-friendly junior position mentored by an experienced developer, so that I can strengthen my foundational skills in a real project context. And to gain a general experiences and a fundamental understanding.
+### I am looking for an entry-level-friendly junior position mentored by an experienced developer, so that I can strengthen my foundational skills in a real project context. And to gain a general experiences and a fundamental understanding.
 
 #### My Abilties (during 9-weeks web development boodcamp)
 - Fundamentals in `HTML`, `CSS`, `JavaScript`, `MERN` _(MongoDB, Express, React, Node)_, `Git/GitHub`.
