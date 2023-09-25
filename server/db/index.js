@@ -1,6 +1,6 @@
 const mongoose = require( 'mongoose' );
 
-const MONGO_URI = process.env.ATLAS_URI || 'mongodb://localhost:27017/alpha';
+const MONGO_URI = process.env.ATLAS_URI || 'mongodb://localhost:27017/todolist';
 
 mongoose.connect( MONGO_URI )
 	.then( ( x ) => {
