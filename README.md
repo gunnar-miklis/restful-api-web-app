@@ -96,13 +96,7 @@ $ yarn dev
 
 ### database
 
-MongoDB database is running on port `27017`. The name is set to `todolist-app`.
+MongoDB database is running on port `27017`. The name is set to `todolist`.
 ```bash
-$ mongodb://localhost:27017/todolist-app
+$ mongodb://localhost:27017/todolist
 ```
-
-&nbsp;
----
-&nbsp;
-
-<div align='center'><h6> &lt;&#47;&gt; with &#9825 </h6></div>
