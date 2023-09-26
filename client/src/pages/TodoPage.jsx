@@ -66,7 +66,7 @@ export default function TodoPage() {
 
 
 			{/* NOTE: name */}
-			<h3 style={{ margin: '25px 0px 5px' }}>Name</h3>
+			<h3 className='section-header'>Rename</h3>
 			<form id='update-form' onSubmit={handleUpdate}>
 				<div className='interaction-container'>
 					<input
@@ -81,7 +81,7 @@ export default function TodoPage() {
 
 
 			{/* NOTE: status */}
-			<h3 style={{ margin: '25px 0px 5px' }}>Status</h3>
+			<h3 className='section-header'>Status</h3>
 			<div className='interaction-container'>
 				<button onClick={()=>toggleIsDone()}>
 					{ todo.isDone ? '✅ Done' : '🔄️ Pending' }
@@ -90,7 +90,7 @@ export default function TodoPage() {
 
 
 			{/* NOTE: delete */}
-			<h3 style={{ margin: '25px 0px 5px' }}>Delete Todo</h3>
+			<h3 className='section-header'>Delete Todo</h3>
 			<div className='interaction-container'>
 				<button onClick={()=>handleDelete()}>❌</button>
 			</div>

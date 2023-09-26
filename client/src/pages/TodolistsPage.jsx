@@ -50,14 +50,15 @@ export default function Todolists() {
 			{/* if there's no todolist, leave empty. else loop and display all lists */}
 			{
 				todolists.length ? (
-					<div className='todo-container'>
+					<div className='list-container'>
 						{
 							todolists.map( ( todolist ) => (
-								<Link key={todolist._id} to={`/todolists/${todolist._id}`}>
-									<div className='todo-item'>
-										<h3 style={{ wordBreak: 'break-word' }}>{todolist.name}</h3>
-										<p>{todolist.todos.length} Todos</p>
-									</div>
+								<Link key={todolist._id} to={`/todolists/${todolist._id}`} className='list-item'>
+									<h3 style={{ wordBreak: 'break-word' }}>{todolist.name}</h3>
+									<p>
+										<span style={{ color: '#21354777' }}>{todolist.todos.filter( ( todo ) => !todo.isDone ).length}/</span>
+										{todolist.todos.length} Todos
+									</p>
 								</Link>
 							) )
 						}

@@ -87,7 +87,7 @@ export default function TodolistPage() {
 
 
 			{/* NOTE: name */}
-			<h3 style={{ margin: '25px 0px 5px' }}>Name</h3>
+			<h3 className='section-header'>Rename</h3>
 			<form id='updateForm' onSubmit={handleUpdate}>
 				<div className='interaction-container'>
 					<input
@@ -102,18 +102,16 @@ export default function TodolistPage() {
 
 
 			{/* NOTE: todos */}
-			<h3 style={{ margin: '25px 0px 5px' }}>Todos</h3>
+			<h3 className='section-header'>Todos</h3>
 			{/* if there's no todos in the todolist, leave empty. else loop and display all todos */}
 			{
 				todolist.todos.length ? (
-					<div className='todo-container'>
+					<div className='list-container'>
 						{
 							todolist.todos.map( ( todo ) => (
-								<Link key={todo._id} to={`/todos/${todo._id}`}>
-									<div className='todo-item'>
-										{ todo.isDone ? <span>✅ </span> : <span>🔄️ </span> }
-										<span style={{ wordBreak: 'break-word' }}>{todo.name}</span>
-									</div>
+								<Link key={todo._id} to={`/todos/${todo._id}`} className='list-item'>
+									{ todo.isDone ? <span>✅ </span> : <span>🔄️ </span> }
+									<span style={{ wordBreak: 'break-word' }}>{todo.name}</span>
 								</Link>
 							) )
 						}
@@ -136,7 +134,7 @@ export default function TodolistPage() {
 
 
 			{/* NOTE: delete */}
-			<h3 style={{ margin: '25px 0px 5px' }}>Delete Todolist</h3>
+			<h3 className='section-header'>Delete Todolist</h3>
 			<form id='deleteFrorm' onSubmit={handleDelete}>
 				<div className='interaction-container'>
 					<input

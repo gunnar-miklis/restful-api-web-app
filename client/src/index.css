@@ -60,6 +60,9 @@ input {
 	border-top-right-radius: 0;
 	border-bottom-right-radius: 0;
 }
+input::placeholder {
+	color: #21354777;
+}
 button:hover,
 input:hover {
 	border-color: #646cff;
@@ -79,6 +82,6 @@ input:focus-visible {
 	margin-bottom: 1.2em;
 	border-radius: 8px;
 	background-color: transparent;
-	box-shadow: 0 0 5px rgba(0,0,0,0.15);
+	box-shadow: 0 0 5px rgba(0,0,0,0.1);
 	overflow: hidden;
 }
