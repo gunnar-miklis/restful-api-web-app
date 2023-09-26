@@ -5,6 +5,7 @@ import Loader from '../components/loader/Loader';
 
 
 export default function TodoPage() {
+	const [ isLoading, setIsLoading ] = useState( true );
 	const [ todo, setTodo ] = useState( {} );
 	const { todoID } = useParams();
 	const navigate = useNavigate();
@@ -14,9 +15,13 @@ export default function TodoPage() {
 	}, [] );
 
 	async function getTodo() {
+		setIsLoading( true );
 		try {
 			const response = await apiService.getTodo( todoID );
 			setTodo( response.data );
+			setTimeout( () => {
+				setIsLoading( false );
+			}, 300 );
 		} catch ( err ) {
 			setTodo( {} );
 			console.error( err );
@@ -59,7 +64,7 @@ export default function TodoPage() {
 		} )();
 	}
 
-	if ( !Object.keys( todo ).length ) return <Loader title='Todo'/>;
+	if ( isLoading ) return <Loader title='Todo'/>;
 
 	return (
 		<>

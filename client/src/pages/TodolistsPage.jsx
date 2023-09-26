@@ -6,6 +6,7 @@ import Loader from '../components/loader/Loader';
 
 
 export default function Todolists() {
+	const [ isLoading, setIsLoading ] = useState( true );
 	const [ todolists, setTodolists ] = useState( [] );
 	const navigate = useNavigate();
 
@@ -14,9 +15,13 @@ export default function Todolists() {
 	}, [] );
 
 	async function getTodolists() {
+		setIsLoading( true );
 		try {
 			const response = await apiService.getAllTodoslists();
 			setTodolists( response.data );
+			setTimeout( () => {
+				setIsLoading( false );
+			}, 300 );
 		} catch ( err ) {
 			setTodolists( [] );
 			console.error( err );
@@ -43,7 +48,7 @@ export default function Todolists() {
 		} )();
 	}
 
-	if ( !todolists.length ) return <Loader title='Todolists'/>;
+	if ( isLoading ) return <Loader title='Todolists'/>;
 
 	return (
 		<>
