@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Link, NavLink, useNavigate, useParams } from 'react-router-dom';
 import apiService from '../services/api';
+import Loader from '../components/loader/Loader';
 
-
-const intialState = { _id: '', name: '', todos: [] };
 
 export default function TodolistPage() {
-	const [ todolist, setTodolist ] = useState( intialState );
+	const [ todolist, setTodolist ] = useState( {} );
 	const { todolistID } = useParams();
 	const navigate = useNavigate();
 	const [ isDeletionError, setIsDeletionError ] = useState( false );
@@ -21,7 +20,7 @@ export default function TodolistPage() {
 			const response = await apiService.getTodolist( todolistID );
 			setTodolist( response.data );
 		} catch ( err ) {
-			setTodolist( intialState );
+			setTodolist( {} );
 			console.error( err );
 		}
 	}
@@ -33,7 +32,7 @@ export default function TodolistPage() {
 				await apiService.updateTodolist( todolistID, { name: todolist.name, todos: todolist.todos } );
 				getTodolist();
 			} catch ( err ) {
-				setTodolist( intialState );
+				setTodolist( {} );
 				console.error( err );
 			}
 		} )();
@@ -51,7 +50,7 @@ export default function TodolistPage() {
 					await apiService.deleteTodolist( todolistID );
 					navigate( '/todolists' );
 				} catch ( err ) {
-					setTodolist( intialState );
+					setTodolist( {} );
 					console.error( err );
 				}
 			} )();
@@ -80,6 +79,8 @@ export default function TodolistPage() {
 			}
 		} )();
 	}
+
+	if ( !Object.keys( todolist ).length ) return <Loader title='Todolist'/>;
 
 	return (
 		<>

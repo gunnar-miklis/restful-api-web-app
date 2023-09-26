@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import apiService from '../services/api';
 import './todolistsStyles.css';
+import Loader from '../components/loader/Loader';
 
 
 export default function Todolists() {
@@ -42,6 +43,8 @@ export default function Todolists() {
 		} )();
 	}
 
+	if ( !todolists.length ) return <Loader title='Todolists'/>;
+
 	return (
 		<>
 			<h1>Todolists</h1>
@@ -49,33 +52,35 @@ export default function Todolists() {
 
 			{/* if there's no todolist, leave empty. else loop and display all lists */}
 			{
-				todolists.length ? (
-					<div className='list-container'>
-						{
-							todolists.map( ( todolist ) => (
-								<Link key={todolist._id} to={`/todolists/${todolist._id}`} className='list-item'>
-									<h3 style={{ wordBreak: 'break-word' }}>{todolist.name}</h3>
-									<p>
-										<span style={{ color: '#21354777' }}>{todolist.todos.filter( ( todo ) => !todo.isDone ).length}/</span>
-										{todolist.todos.length} Todos
-									</p>
-								</Link>
-							) )
-						}
-					</div>
-				) : <span></span>
-			}
-			<form onSubmit={handleAddNew}>
-				<div className='interaction-container'>
-					<input
-						type='text'
-						name='name'
-						placeholder='new todolist'
-					/>
-					<button className='input-button' type='submit'>➕</button>
-				</div>
-			</form>
+				todolists.length && (
+					<>
+						<div className='list-container'>
+							{
+								todolists.map( ( todolist ) => (
+									<Link key={todolist._id} to={`/todolists/${todolist._id}`} className='list-item'>
+										<h3 style={{ wordBreak: 'break-word' }}>{todolist.name}</h3>
+										<p>
+											<span style={{ color: '#21354777' }}>{todolist.todos.filter( ( todo ) => !todo.isDone ).length}/</span>
+											{todolist.todos.length} Todos
+										</p>
+									</Link>
+								) )
+							}
+						</div>
 
+						<form onSubmit={handleAddNew}>
+							<div className='interaction-container'>
+								<input
+									type='text'
+									name='name'
+									placeholder='new todolist'
+								/>
+								<button className='input-button' type='submit'>➕</button>
+							</div>
+						</form>
+					</>
+				)
+			}
 
 			<br/>
 			<NavLink to='/home'>Home</NavLink>

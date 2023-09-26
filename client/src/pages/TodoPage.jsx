@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react';
 import { NavLink, useNavigate, useParams } from 'react-router-dom';
 import apiService from '../services/api';
+import Loader from '../components/loader/Loader';
 
-
-const initalState = { _id: '', name: '', isDone: false };
 
 export default function TodoPage() {
-	const [ todo, setTodo ] = useState( initalState );
+	const [ todo, setTodo ] = useState( {} );
 	const { todoID } = useParams();
 	const navigate = useNavigate();
 
@@ -19,7 +18,7 @@ export default function TodoPage() {
 			const response = await apiService.getTodo( todoID );
 			setTodo( response.data );
 		} catch ( err ) {
-			setTodo( initalState );
+			setTodo( {} );
 			console.error( err );
 		}
 	}
@@ -29,7 +28,7 @@ export default function TodoPage() {
 			const response = await apiService.updateTodo( todoID, data );
 			setTodo( response.data );
 		} catch ( err ) {
-			setTodo( initalState );
+			setTodo( {} );
 			console.error( err );
 		}
 	}
@@ -54,11 +53,13 @@ export default function TodoPage() {
 				await apiService.deleteTodo( todoID );
 				navigate( -1 );
 			} catch ( err ) {
-				setTodo( initalState );
+				setTodo( {} );
 				console.error( err );
 			}
 		} )();
 	}
+
+	if ( !Object.keys( todo ).length ) return <Loader title='Todo'/>;
 
 	return (
 		<>
